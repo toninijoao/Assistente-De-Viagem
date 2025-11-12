@@ -23,9 +23,11 @@ while True:
     origem = input("\n📍E irá sair de onde?\n💬 Seu Ponto de Partida: ")
 
     promptpergunta = (
-        f"Calcule a Distância por estradas de {origem} até {destino}."
-        "Escolha o caminho mais rápido"
-    )
+        f"Calcule a distância rodoviária (por estradas) entre {origem} e {destino}, "
+        "em quilômetros. "
+        "Responda APENAS com um número decimal representando a distância total em KM, "
+        "sem texto adicional, sem unidade e sem explicação."
+        )
     resposta = chat.send_message(promptpergunta)
     distancia = resposta.text.strip()
     numero_encontrado = re.search(r'\d+[\.,]?\d*', distancia)
@@ -36,7 +38,7 @@ while True:
         continue
 
 
-    carro = input("\n🚙 Qual carro você irá usar para ir de {origem} até {destino}?\n💬 Carro: ")
+    carro = input(f"\n🚙 Qual carro você irá usar para ir de {origem} até {destino}?\n💬 Carro: ")
     promptcarro = (
         f"Qual é a autonomia média de um {carro} em KM/L? em gasolina"
         "Responda com apenas uma casa decimal(exemplo: 12.5)"
